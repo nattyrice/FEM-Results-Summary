@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | Results summary component</title>
+
+    <style>
+      :root {
+        /* ### Primary */
+        --light-red: hsl(0, 100%, 67%);
+        --light-red-bg: hsl(0, 100%, 97%);
+        --orange-yellow: hsl(39, 100%, 56%);
+        --orange-yellow-bg: hsl(39, 100%, 97%);
+        --green-teal: hsl(166, 100%, 37%);
+        --green-teal-bg: hsl(166, 100%, 97%);
+        --cobalt-blue: hsl(234, 85%, 45%);
+        --cobalt-blue-bg: hsl(234, 85%, 97%);
+
+        /* ## Gradients */
+        /* (background) */
+        --light-slate-blue: hsl(253, 100%, 67%);
+        --light-royal-blue: hsl(241, 81%, 54%);
+
+        /* (circle) */
+        --violet-blue: hsla(256, 72%, 46%, 1);
+        --persian-blue: hsla(241, 72%, 46%, 0);
+
+        /* ### Neutral */
+        --pale-blue: hsl(221, 100%, 96%);
+        --light-lavender: hsl(241, 100%, 89%);
+        --dark-gray-blue: hsl(224, 30%, 27%);
+
+        /* ## Font Weights */
+        --medium-weight: 500;
+        --bold-weight: 700;
+        --extrabold-weight: 800;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        text-align: center;
+        font-family: "Hanken Grotesk", sans-serif;
+        font-size: 18px;
+      }
+      .card-group {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: rgb(255, 255, 255);
+        min-width: 375px;
+      }
+      .results-card {
+        flex-shrink: 0;
+        flex-grow: 0;
+        width: 375px;
+        justify-content: center;
+
+        background: linear-gradient(
+          180deg,
+          var(--light-slate-blue) 15%,
+          var(--light-royal-blue) 100%
+        );
+        border-end-start-radius: 35px;
+        border-end-end-radius: 35px;
+      }
+      .results-card > h1 {
+        color: white;
+        font-weight: var(--bold-weight);
+      }
+      .results-card > h2 {
+        color: var(--light-lavender);
+        font-weight: var(--bold-weight);
+      }
+      .circle {
+        inline-size: 200px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        margin-left: auto;
+        margin-right: auto;
+
+        display: grid;
+        place-items: center;
+        background: linear-gradient(
+          0deg,
+          var(--persian-blue) 5%,
+          var(--violet-blue) 100%
+        );
+      }
+      .circle > p {
+        color: var(--light-slate-blue);
+        padding-top: 18px;
+        max-width: 100px;
+        /* color: var(--light-slate-blue); */
+      }
+      .circle > p > span {
+        color: white;
+        line-height: 24px;
+        font-size: 4rem;
+        font-weight: --extrabold-weight;
+      }
+      .results-card > p {
+        color: var(--light-lavender);
+        max-width: 250px;
+        justify-self: center;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 55px;
+      }
+      .summary-card {
+        flex-shrink: 0;
+        flex-grow: 0;
+        width: 375px;
+      }
+      .summary-card > h2 {
+        text-align: left;
+        margin-left: 35px;
+      }
+      /* 
+      <div class="line-item">
+        <div class="icon" />
+        <span class="categry">Visual</span>
+        <span class="score">72 / 100</span>
+      </div> 
+      */
+      .list {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 1fr;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+      .line-item {
+        height: 50px;
+        width: 300px;
+        margin: auto;
+        font-weight: var(--bold-weight);
+        list-style-type: none;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+      }
+      .score {
+        color: black;
+        margin: 0 10px;
+      }
+      .score + span {
+        margin-right: 20px;
+        color: lightgray;
+      }
+      .category {
+        margin-right: auto;
+      }
+      .icon {
+        margin: 0 20px;
+      }
+      .line-item:nth-child(4n-3) {
+        color: var(--light-red);
+        background-color: var(--light-red-bg);
+      }
+      .line-item:nth-child(4n-2) {
+        color: var(--orange-yellow);
+        background-color: var(--orange-yellow-bg);
+      }
+      .line-item:nth-child(4n-1) {
+        color: var(--green-teal);
+        background-color: var(--green-teal-bg);
+      }
+      .line-item:nth-child(4n) {
+        color: var(--cobalt-blue);
+        background-color: var(--cobalt-blue-bg);
+      }
+      button {
+        min-width: 300px;
+        height: 50px;
+        border-radius: 50px;
+        border-style: none;
+        background-color: var(--dark-gray-blue);
+        color: white;
+        font-family: "Hanken Grotesk", sans-serif;
+        font-size: 18px;
+        margin-top: 60px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: var(--light-royal-blue);
+      }
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+        min-width: 375px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+      @media screen and (min-width: 376px) {
+        main {
+          min-height: 100vh;
+          display: grid;
+          place-items: center;
+        }
+        .card-group {
+          width: 375px;
+          border-radius: 35px;
+          filter: drop-shadow(0.25rem 1rem 0.5rem var(--light-lavender));
+        }
+        .results-card {
+          border-radius: 35px;
+        }
+      }
+      @media screen and (min-width: calc(375px * 2)) {
+        .card-group {
+          width: calc(375px * 2);
+        }
+      }
+    </style>
+    <script type="text/javascript" src="./loadData.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <div class="card-group">
+        <div class="results-card">
+          <h2>Your Result</h2>
+          <div class="circle">
+            <p><span id="score"></span> of 100</p>
+          </div>
+
+          <h1>Great</h1>
+          <p>
+            You scored higher than 65% of the people who have taken these tests.
+          </p>
+        </div>
+
+        <div class="summary-card">
+          <h2>Summary</h2>
+          <div id="results-table" class="list"></div>
+          <button>Continue</button>
+        </div>
+      </div>
+    </main>
+    <!-- <footer>
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="https://github.com/nattyrice">Nathan Rice</a>.
+      </div>
+    </footer> -->
+  </body>
+</html>
