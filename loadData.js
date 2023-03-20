@@ -33,6 +33,7 @@ function createLineItem({ icon, category, score }) {
 
   let iconEl = document.createElement("img");
   iconEl.setAttribute("src", icon);
+  iconEl.setAttribute("alt", "decorative icon");
   iconEl.className = "icon";
 
   let categoryEl = document.createElement("span");
