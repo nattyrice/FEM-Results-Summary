@@ -187,7 +187,8 @@
         color: white;
         font-family: "Hanken Grotesk", sans-serif;
         font-size: 18px;
-        margin-top: 60px;
+        margin-top: 24px;
+        margin-bottom: 24px;
         cursor: pointer;
       }
       button:hover {
@@ -211,18 +212,25 @@
           display: grid;
           place-items: center;
         }
+        button {
+          margin-top: 24px;
+          margin-bottom: 24px;
+        }
         .card-group {
           width: 375px;
+        }
+      }
+      @media screen and (min-width: calc(375px * 2)) {
+        button {
+          margin-top: 60px;
+        }
+        .card-group {
+          width: calc(375px * 2);
           border-radius: 35px;
           filter: drop-shadow(0.25rem 1rem 0.5rem var(--light-lavender));
         }
         .results-card {
           border-radius: 35px;
-        }
-      }
-      @media screen and (min-width: calc(375px * 2)) {
-        .card-group {
-          width: calc(375px * 2);
         }
       }
     </style>
