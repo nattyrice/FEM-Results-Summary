@@ -199,8 +199,17 @@
         margin-bottom: 24px;
         cursor: pointer;
       }
-      button:hover {
+      button:hover,
+      button:focus {
         background-color: var(--light-royal-blue);
+        background: linear-gradient(
+          180deg,
+          var(--light-slate-blue) 15%,
+          var(--light-royal-blue) 100%
+        );
+      }
+      button:focus {
+        outline-color: var(--light-lavender);
       }
       .attribution {
         font-size: 11px;
@@ -216,7 +225,6 @@
       }
       @media screen and (min-width: 376px) {
         main {
-          min-height: 100vh;
           display: grid;
           place-items: center;
         }
@@ -229,6 +237,9 @@
         }
       }
       @media screen and (min-width: calc(375px * 2)) {
+        main {
+          min-height: 100vh;
+        }
         button {
           margin-top: 60px;
         }
